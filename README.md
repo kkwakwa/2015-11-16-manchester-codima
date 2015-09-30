@@ -1,3 +1,14 @@
+# What't in this repository
+
+This is the repository for the website of the Software Carpentry
+Workshop on November 16-17, 2015 at the University of Manchester.
+The actual website is located here:
+
+**http://kkwakwa.github.io/2015-11-16-manchester-codima/**
+
+This workshop constitutes the initial part of the
+[First CoDiMa Training School in Computational Discrete Mathematics](http://www.codima.ac.uk/school2015/).
+
 # workshop-template
 
 This repository is [Software Carpentry](http://software-carpentry.org)'s
