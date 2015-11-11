@@ -6,10 +6,10 @@ address: University Place, Oxford Road, Manchester # street address of workshop 
 country: gb    # country (two-letter ISO code such as "fr" - see https://en.wikipedia.org/wiki/ISO_3166-1)
 language: en   # language (two-letter ISO code such as "fr" - see https://en.wikipedia.org/wiki/ISO_639-1)
 latlng: 53.466758, -2.233717  # fractional latitude and longitude (e.g., 41.7901128,-87.6007318)
-humandate: Nov 16-17, 2015  # human-readable date (e.g., 'Feb 17-18, 2020' without the quotes)
-humantime: 9:00 am - 4:30 pm  # human-readable time (e.g., '9:00 am - 4:30 pm' without the quotes)
+humandate: Nov 16-18, 2015  # human-readable date (e.g., 'Feb 17-18, 2020' without the quotes)
+humantime: 9:30 am - 17:00 pm  # human-readable time (e.g., '9:00 am - 4:30 pm' without the quotes)
 startdate: 2015-11-16  # use YYYY-MM-DD format like 2015-01-01
-enddate: 2015-11-17    # use YYYY-MM-DD format like 2015-01-02
+enddate: 2015-11-18    # use YYYY-MM-DD format like 2015-01-02
 instructor: ["Alexander Konovalov (University of St Andrews)",
              "Kwasi Kwakwa (Imperial College London)",
              "Leighton Pritchard (James Hutton Institute)"] # list of names like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
@@ -173,28 +173,41 @@ workshop you will automatically register for the whole School. Please see
   <div class="col-md-6">
     <h3>Day 1</h3>
     <table class="table table-striped">
-      <tr> <td>09:00</td>  <td>Automating tasks with the Unix shell</td> </tr>
-      <tr> <td>10:30</td> <td>Coffee</td> </tr>
-      <tr> <td>12:00</td>  <td>Lunch break</td> </tr>
-      <tr> <td>13:00</td>  <td>Automation with Make </td> </tr>
-      <tr> <td>14:30</td>  <td>Coffee</td> </tr>
-      <tr> <td>16:00</td>  <td>Wrap-up</td> </tr>
+      <tr> <td>09:30</td>  <td>Automating tasks with the Unix shell</td> </tr>
+      <tr> <td>11:00</td> <td>Coffee</td> </tr>
+      <tr> <td>12:30</td>  <td>Lunch break</td> </tr>
+      <tr> <td>13:30</td>  <td>Automation with Make </td> </tr>
+      <tr> <td>15:00</td>  <td>Coffee</td> </tr>
+      <tr> <td>16:30</td>  <td>Wrap-up</td> </tr>
     </table>
   </div>
   <div class="col-md-6">
     <h3>Day 2</h3>
     <table class="table table-striped">
-      <tr> <td>09:00</td>  <td>Version control with Git</td> </tr>
-      <tr> <td>10:30</td>  <td>Coffee</td> </tr>
-      <tr> <td>12:00</td>  <td>Lunch break</td> </tr>
-      <tr> <td>13:00</td>  <td>Programming in GAP</td> </tr>
-      <tr> <td>14:30</td>  <td>Coffee</td> </tr>
-      <tr> <td>16:00</td>  <td>Wrap-up</td> </tr>
+      <tr> <td>09:30</td>  <td>Version control with Git</td> </tr>
+      <tr> <td>11:00</td>  <td>Coffee</td> </tr>
+      <tr> <td>12:30</td>  <td>Lunch break</td> </tr>
+      <tr> <td>13:30</td>  <td>Programming in GAP</td> </tr>
+      <tr> <td>15:00</td>  <td>Coffee</td> </tr>
+      <tr> <td>15:00</td>  <td>Wrap-up</td> </tr>
+      <tr> <td>16:30</td>  <td>School activities (see schedule
+        <a href="http://www.codima.ac.uk/school2015/">here</a>)</td> </tr>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <h3>Day 3</h3>
+    <table class="table table-striped">
+      <tr> <td>09:30</td>  <td>Programming in GAP</td> </tr>
+      <tr> <td>11:00</td>  <td>Coffee</td> </tr>
+      <tr> <td>12:00</td>  <td>Wrap-up</td> </tr>
+      <tr> <td>12:30</td>  <td>Lunch break</td> </tr>
+      <tr> <td>13:30</td>  <td>School activities (see schedule
+        <a href="http://www.codima.ac.uk/school2015/">here</a>)</td> </tr>
     </table>
   </div>
 </div>
 
-<h3>The programme for Days 3-5 of the Training School is available <a href="http://www.codima.ac.uk/school2015/">here</a></h3>
+<h3>The full programme for each day of the Training School is available <a href="http://www.codima.ac.uk/school2015/">here</a></h3>
 
 <!--
   ETHERPAD
@@ -309,12 +322,11 @@ workshop you will automatically register for the whole School. Please see
     <h3>Programming in GAP</h3>
     <ul>
       <li>First session with GAP</li>
-      <li>Variables and functions</li>
-      <li>GAP data types</li>
-      <li>Attributes and operations</li>
-      <li>Test-driven development</li>
-      <li>GAP packages</li>
-      <li><a href="http://www.gap-system.org/Manuals/doc/tut/chap0.html">Reference...</a></li>
+      <li>Functions in GAP</li>
+      <li>Using regression tests</li>
+      <li>Small groups search</li>
+      <li>Attributes and methods</li>
+      <li><a href="http://alex-konovalov.github.io/gap-lesson/reference.html">Reference...</a></li>
     </ul>
   </div>
   <!--
@@ -459,9 +471,9 @@ workshop you will automatically register for the whole School. Please see
 
   <p>
     GAP is a system for discrete computational algebra. It provides a programming
-    language, a library of thousands of functions implementing algebraic algorithms 
+    language, a library of thousands of functions implementing algebraic algorithms
     written in the GAP language as well as large data libraries of algebraic objects.
-    Its latest version may be found on the 
+    Its latest version may be found on the
     <a href="http://www.gap-system.org/Releases/">GAP Downloads page</a>.
   </p>
 
@@ -471,10 +483,10 @@ workshop you will automatically register for the whole School. Please see
       <p>
         From the <a href="http://www.gap-system.org/Releases/">GAP Downloads page</a>,
         download the <code>.exe</code> installer and double click on the file to run it. When you
-        will be asked for the installation path, note that it should not contain spaces. 
-        For example, you may install GAP in <code>C:\gap4r7</code> (default), 
-        <code>D:\gap4r7p8</code> or <code>C:\Math\GAP\gap4r7</code>, but you must not 
-        install it in a directory named like <code>C:\Program files\gap4r7</code> or 
+        will be asked for the installation path, note that it should not contain spaces.
+        For example, you may install GAP in <code>C:\gap4r7</code> (default),
+        <code>D:\gap4r7p8</code> or <code>C:\Math\GAP\gap4r7</code>, but you must not
+        install it in a directory named like <code>C:\Program files\gap4r7</code> or
         <code>C:\Users\alice\My Documents\gap4r7</code> etc.
       </p>
     </div>
@@ -497,12 +509,12 @@ workshop you will automatically register for the whole School. Please see
     <div class="col-md-4">
       <h4 id="git-linux">Linux</h4>
       <p>
-        We suggest to use an 
-        <a href="http://gap-system.github.io/bob/">alternative GAP source installer BOB</a> 
-        which will first check whether everything it needs from your system is installed and 
+        We suggest to use an
+        <a href="http://gap-system.github.io/bob/">alternative GAP source installer BOB</a>
+        which will first check whether everything it needs from your system is installed and
         if not it will warn you and tell you what is needed.
         Please see <a href="http://gap-system.github.io/bob/">BOB</a>
-        page for further instructions. To be able to compile GAP you may need to install 
+        page for further instructions. To be able to compile GAP you may need to install
         some tools as described <a href="http://www.gap-system.org/Download/tools.html">here</a>.
         Alternatively, you may also install GAP from source as explained at the
         <a href="http://www.gap-system.org/Releases/">GAP Downloads page</a>.
@@ -529,7 +541,7 @@ workshop you will automatically register for the whole School. Please see
       <h4 id="editor-windows">Windows</h4>
       <p>
         nano is a basic editor and the default that instructors use in the workshop.
-        To install it, 
+        To install it,
         download the <a href="{{site.swc_installer}}">Software Carpentry Windows installer</a>
         and double click on the file to run it.
         <strong>This installer requires an active internet connection.</strong>
