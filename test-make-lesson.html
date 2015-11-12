@@ -3302,6 +3302,30 @@ isles.dat : books/isles.txt
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="reverse">  GNU nano 2.0.6                                                        File: Makefile                                                                                                                      
 </span>
 isles.dat : books/isles.txt
@@ -3550,7 +3574,31 @@ tar -cvf analysis.tar.gz abyss.dat isles.dat last.dat
 a abyss.dat
 a isles.dat
 a last.dat
-<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> 
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> cat makefile
+# Count words
+.PHONY : dats
+dats : isles.dat abyss.dat last.dat
+
+isles.dat : books/isles.txt
+	python wordcount.py $&lt; $@
+
+abyss.dat : books/abyss.txt
+	python wordcount.py $&lt; $@
+
+last.dat : books/last.txt
+	python wordcount.py $&lt; $@
+
+# Generate archive file
+analysis.tar.gz : *.dat
+	tar -cvf $@ $^
+
+.PHONY : clean
+clean :
+	rm -f *.dat
+
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> make clean
+rm -f *.dat
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> make clean
 
 
 <h2 id="end">end</h2></pre>
