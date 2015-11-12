@@ -320,7 +320,58 @@ x make-lesson/wordcount.py
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson $</span></span></span></span> cd make-lesson
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> ls
 <span class="bold"><span class="f4">books</span></span>        <span class="bold"><span class="f2">plotcount.py</span></span> <span class="bold"><span class="f2">wordcount.py</span></span>
-<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> les
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> less wordcount.py
+#!/usr/bin/env python
+ 
+import string
+import sys
+
+DELIMITERS = [&quot;.&quot;, &quot;,&quot;, &quot;;&quot;, &quot;:&quot;, &quot;?&quot;, &quot;$&quot;, &quot;@&quot;, &quot;^&quot;, &quot;&lt;&quot;, &quot;&gt;&quot;, &quot;#&quot;, &quot;%&quot;, &quot;`&quot;, &quot;!&quot;, &quot;*&quot;, &quot;-&quot;, &quot;=&quot;, &quot;(&quot;, &quot;)&quot;, &quot;[&quot;, &quot;]&quot;, &quot;{&quot;, &quot;}&quot;, &quot;/&quot;, &quot;\&quot;&quot;, &quot;\'&quot;]
+
+&quot;&quot;&quot;
+Load lines from a plain-text file and return these as a list, with
+trailing newlines stripped.
+&quot;&quot;&quot;
+def load_text(file):
+  text = &quot;&quot;
+  with open(file) as f:
+    lines = f.read().splitlines()
+  return lines
+
+&quot;&quot;&quot;
+Save a list of [word, count, percentage] lists to a file, in the form
+&quot;word count percentage&quot;, one tuple per line.
+&quot;&quot;&quot;
+def save_word_counts(file, counts):
+  f = open(file, 'w')
+  for count in counts:
+    f.write(&quot;%s\n&quot; % &quot; &quot;.join(map(str, count)))
+  f.close()
+
+&quot;&quot;&quot;
+Load a list of (word, count, percentage) tuples from a file where each
+line is of the form &quot;word count percentage&quot;. Lines starting with # are
+ignored.
+&quot;&quot;&quot;
+def load_word_counts(file):
+  counts = []
+  f = open(file, &quot;r&quot;)
+  for line in f:
+    if (not line.startswith(&quot;#&quot;)):
+      fields = line.split()
+      counts.append((fields[0], int(fields[1]), float(fields[2])))
+  f.close()
+  return counts
+
+&quot;&quot;&quot;
+Given a string, parse the string and update a dictionary of word
+counts (mapping words to counts of their frequencies). DELIMITERS are
+removed before the string is parsed. The function is case-insensitive
+and words in the dictionary are in lower-case.
+&quot;&quot;&quot;
+def update_word_counts(line, counts):
+  for purge in DELIMITERS:
+<span class="reverse">wordcount.py                                                                                                                                                                                               
 <h2 id="end">end</h2></pre>
 </body>
 </html>
