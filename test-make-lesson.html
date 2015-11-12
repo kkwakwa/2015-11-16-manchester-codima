@@ -3529,6 +3529,24 @@ isles.dat : books/isles.txt
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="reverse">  GNU nano 2.0.6                                                        File: Makefile                                                                                                                      
 </span>
 isles.dat : books/isles.txt
@@ -4004,6 +4022,24 @@ a abyss.dat
 a isles.dat
 a last.dat
 a wordcount.py
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> cat Makefile 
+include config.mk
+
+# Count words
+.PHONY : dats
+dats : isles.dat abyss.dat last.dat
+
+%.dat : books/%.txt $(COUNT_SRC)
+	$(COUNT_EXE) $&lt; $*.dat
+
+# Generate archive file
+analysis.tar.gz : *.dat $(COUNT_SRC)
+	tar -cvf $@ $^
+
+.PHONY : clean
+clean :
+	rm -f *.dat
+	rm -f analysis.tar.gz
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> 
 
 
