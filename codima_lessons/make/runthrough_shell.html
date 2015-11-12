@@ -788,6 +788,14 @@ efile<span class="bold"><span class="f2">c<span class="bold"><span class="f4"> ~
 
 
 
+
+
+
+
+
+
+
+
 <span class="reverse">  GNU nano 2.0.6                           File: Makefile                                                              </span>
 
 
@@ -1013,6 +1021,14 @@ rm -f %(DAT_FILES)
 /bin/sh: -c: line 0: syntax error near unexpected token `('
 /bin/sh: -c: line 0: `rm -f %(DAT_FILES)'
 make: *** [clean] Error 2
+an<span class="bold"><span class="f2">ritc<span class="bold"><span class="f4"> ~/Development/GitHub/Teaching/2015-11-16-manchester-codima/codima_lessons/make/runthrough/make-lesson $</span></span></span></span> make clea
+rm -f  abyss.dat  isles.dat  last.dat  sierra.dat
+rm -f analysis.tar.gz
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Development/GitHub/Teaching/2015-11-16-manchester-codima/codima_lessons/make/runthrough/make-lesson $</span></span></span></span> make dats                                    
+python wordcount.py books/abyss.txt abyss.dat
+python wordcount.py books/isles.txt isles.dat
+python wordcount.py books/last.txt last.dat
+python wordcount.py books/sierra.txt sierra.dat
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Development/GitHub/Teaching/2015-11-16-manchester-codima/codima_lessons/make/runthrough/make-lesson $</span></span></span></span> 
 
 
