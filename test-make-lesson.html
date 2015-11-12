@@ -371,7 +371,83 @@ and words in the dictionary are in lower-case.
 &quot;&quot;&quot;
 def update_word_counts(line, counts):
   for purge in DELIMITERS:
-<span class="reverse">wordcount.py                                                                                                                                                                                               
+<span class="reverse">    line = line.replace(purge, &quot; &quot;)                                                                                                                                                                        
+  words = line.split()</span>
+<span class="reverse">  for word in words:</span>
+<span class="reverse">    word = word.lower().strip()</span>
+<span class="reverse">    if word in counts:</span>
+<span class="reverse">      counts[word] += 1</span>
+<span class="reverse">    else:</span>
+<span class="reverse">      counts[word] = 1</span>
+
+<span class="reverse">&quot;&quot;&quot;</span>
+<span class="reverse">Given a list of strings, parse each string and create a dictionary of</span>
+<span class="reverse">word counts (mapping words to counts of their frequencies). DELIMITERS</span>
+<span class="reverse">are removed before the string is parsed. The function is</span>
+<span class="reverse">case-insensitive and words in the dictionary are in lower-case.</span>
+<span class="reverse">&quot;&quot;&quot;</span>
+<span class="reverse">def calculate_word_counts(lines):</span>
+<span class="reverse">  counts = {}</span>
+<span class="reverse">  for line in lines:</span>
+<span class="reverse">    update_word_counts(line, counts)</span>
+<span class="reverse">  return counts</span>
+
+<span class="reverse">&quot;&quot;&quot;</span>
+<span class="reverse">Given a dictionary of word counts (mapping words to counts of their</span>
+<span class="reverse">frequencies), convert this into an ordered list of tuples (word,</span>
+<span class="reverse">count). The list is ordered by decreasing count, unless increase is</span>
+<span class="reverse">True.</span>
+<span class="reverse">&quot;&quot;&quot;</span>
+<span class="reverse">def word_count_dict_to_tuples(counts, decrease = True):</span>
+<span class="reverse">  return sorted(counts.iteritems(), key=lambda (key,value): value, \</span>
+<span class="reverse">    reverse = decrease)</span>
+
+<span class="reverse">&quot;&quot;&quot;</span>
+<span class="reverse">Given a list of (word, count) tuples, create a new list with only</span>
+<span class="reverse">those tuples whose word is &gt;= min_length.</span>
+<span class="reverse">&quot;&quot;&quot;</span>
+<span class="reverse">def filter_word_counts(counts, min_length = 1):</span>
+<span class="reverse">  stripped = []</span>
+<span class="reverse">  for (word, count) in counts:</span>
+<span class="reverse">    if (len(word) &gt;= min_length):</span>
+<span class="reverse">      stripped.append((word, count))</span>
+<span class="reverse">  return stripped</span>
+
+<span class="reverse">&quot;&quot;&quot;</span>
+<span class="reverse">Given a list of (word, count) tuples, create a new list (word, count,</span>
+<span class="reverse">percentage) where percentage is the percentage number of occurrences</span>
+<span class="reverse">of this word compared to the total number of words.</span>
+<span class="reverse">&quot;&quot;&quot;</span>
+<span class="reverse">def calculate_percentages(counts):</span>
+<span class="reverse">  total = 0</span>
+<span class="reverse">  for count in counts:</span>
+<span class="reverse">    total += count[1]                                                                                                                                                                                      
+  tuples = [(word, count, (float(count) / total) * 100.0) </span>
+<span class="reverse">    for (word, count) in counts]</span>
+<span class="reverse">  return tuples</span>
+
+<span class="reverse">&quot;&quot;&quot;</span>
+<span class="reverse">Load a file, calculate the frequencies of each word in the file and</span>
+<span class="reverse">save in a new file the words, counts and percentages of the total  in</span>
+<span class="reverse">descending order. Only words whose length is &gt;= min_length are</span>
+<span class="reverse">included.</span>
+<span class="reverse">&quot;&quot;&quot;</span>
+<span class="reverse">def word_count(input_file, output_file, min_length = 1):</span>
+<span class="reverse">  lines = load_text(input_file)</span>
+<span class="reverse">  counts = calculate_word_counts(lines)</span>
+<span class="reverse">  sorted_counts = word_count_dict_to_tuples(counts)</span>
+<span class="reverse">  sorted_counts = filter_word_counts(sorted_counts, min_length)</span>
+<span class="reverse">  percentage_counts = calculate_percentages(sorted_counts)</span>
+<span class="reverse">  save_word_counts(output_file, percentage_counts)</span>
+
+<span class="reverse">if  __name__ =='__main__':</span>
+<span class="reverse">  input_file = sys.argv[1]</span>
+<span class="reverse">  output_file = sys.argv[2]</span>
+<span class="reverse">  min_length = 1</span>
+<span class="reverse">  if (len(sys.argv) &gt; 3):</span>
+<span class="reverse">    min_length = int(sys.argv[3])</span>
+<span class="reverse">  word_count(input_file, output_file, min_length)</span>
+<span class="reverse"><span class="reverse"><span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span></span></span> <span class="reverse"><span class="reverse">                                                                                                                                                           
 <h2 id="end">end</h2></pre>
 </body>
 </html>
