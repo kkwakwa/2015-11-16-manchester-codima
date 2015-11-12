@@ -1,4 +1,4 @@
-# What't in this repository
+# What is in this repository
 
 This is the repository for the website of the Software Carpentry
 Workshop on November 16-17, 2015 at the University of Manchester.
