@@ -3695,6 +3695,26 @@ isles.dat : books/isles.txt
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="reverse">  GNU nano 2.0.6                                                        File: Makefile                                                                                                                      
 </span>
 isles.dat : books/isles.txt
@@ -4337,6 +4357,26 @@ clean :
 rm -f *.dat *.jpg
 rm -f analysis.tar.gz
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> make analysis.tar.gz
+python wordcount.py books/abyss.txt abyss.dat
+python wordcount.py books/isles.txt isles.dat
+python wordcount.py books/last.txt last.dat
+python wordcount.py books/sierra.txt sierra.dat
+python plotcount.py abyss.dat abyss.jpg
+python plotcount.py abyss.dat isles.jpg
+python plotcount.py abyss.dat last.jpg
+python plotcount.py abyss.dat sierra.jpg
+tar -cvf analysis.tar.gz abyss.dat isles.dat last.dat sierra.dat abyss.jpg isles.jpg last.jpg sierra.jpg wordcount.py plotcount.py
+a abyss.dat
+a isles.dat
+a last.dat
+a sierra.dat
+a abyss.jpg
+a isles.jpg
+a last.jpg
+a sierra.jpg
+a wordcount.py
+a plotcount.py
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> 
 
 
 <h2 id="end">end</h2></pre>
