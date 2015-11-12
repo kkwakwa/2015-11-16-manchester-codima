@@ -3622,6 +3622,43 @@ isles.dat : books/isles.txt
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="reverse">  GNU nano 2.0.6                                                        File: Makefile                                                                                                                      
 </span>
 isles.dat : books/isles.txt
@@ -4190,7 +4227,44 @@ python wordcount.py books/sierra.txt sierra.dat
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> make clean
 rm -f *.dat
 rm -f analysis.tar.gz
-<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> make anal                                                                                                                                                   
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> make analysis.tar.gz                                                                                                                                        
+python wordcount.py books/abyss.txt abyss.dat
+python wordcount.py books/isles.txt isles.dat
+python wordcount.py books/last.txt last.dat
+python wordcount.py books/sierra.txt sierra.dat
+tar -cvf analysis.tar.gz abyss.dat isles.dat last.dat sierra.dat wordcount.py
+a abyss.dat
+a isles.dat
+a last.dat
+a sierra.dat
+a wordcount.py
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> cat Makefile 
+include config.mk
+
+TXT_FILES=$(wildcard books/*.txt)	
+DAT_FILES=$(patsubst books/%.txt, %.dat, $(TXT_FILES))
+
+# Count words
+.PHONY : dats
+dats : $(DAT_FILES)
+
+%.dat : books/%.txt $(COUNT_SRC)
+	$(COUNT_EXE) $&lt; $*.dat
+
+# Generate archive file
+analysis.tar.gz : $(DAT_FILES) $(COUNT_SRC)
+	tar -cvf $@ $^
+
+.PHONY : variables
+variables :
+	@echo TXT_FILES: $(TXT_FILES)
+	@echo DAT_FILES: $(DAT_FILES)
+
+.PHONY : clean
+clean :
+	rm -f *.dat
+	rm -f analysis.tar.gz
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> 
 
 
 <h2 id="end">end</h2></pre>
