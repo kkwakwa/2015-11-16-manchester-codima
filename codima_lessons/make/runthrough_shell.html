@@ -697,6 +697,11 @@ efile<span class="bold"><span class="f2">c<span class="bold"><span class="f4"> ~
 
 
 
+
+
+
+
+
 <span class="reverse">  GNU nano 2.0.6                           File: Makefile                                                              </span>
 
 
@@ -831,6 +836,11 @@ python wordcount.py books/abyss.txt abyss.dat
 python wordcount.py books/isles.txt isles.dat
 python wordcount.py books/last.txt last.dat
 tar -czf analysis.tar.gz abyss.dat isles.dat last.dat
+an<span class="bold"><span class="f2">ritc<span class="bold"><span class="f4"> ~/Development/GitHub/Teaching/2015-11-16-manchester-codima/codima_lessons/make/runthrough/make-lesson $</span></span></span></span> make cle 
+rm -f *.dat
+rm -f analysis.tar.gz
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Development/GitHub/Teaching/2015-11-16-manchester-codima/codima_lessons/make/runthrough/make-lesson $</span></span></span></span> make analysis.tar.gz
+make: *** No rule to make target `*.dat', needed by `analysis.tar.gz'.  Stop.
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Development/GitHub/Teaching/2015-11-16-manchester-codima/codima_lessons/make/runthrough/make-lesson $</span></span></span></span> 
 
 
