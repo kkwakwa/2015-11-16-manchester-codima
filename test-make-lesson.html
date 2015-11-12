@@ -3576,6 +3576,32 @@ isles.dat : books/isles.txt
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="reverse">  GNU nano 2.0.6                                                        File: Makefile                                                                                                                      
 </span>
 isles.dat : books/isles.txt
@@ -4093,6 +4119,32 @@ analysis.tar.gz : *.dat $(COUNT_SRC)
 .PHONY : variables
 variables :
 	@echo TXT_FILES: $(TXT_FILES)
+
+.PHONY : clean
+clean :
+	rm -f *.dat
+	rm -f analysis.tar.gz
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> cat Makefile 
+include config.mk
+
+TXT_FILES=$(wildcard books/*.txt)	
+DAT_FILES=$(patsubst books/%.txt, %.dat, $(TXT_FILES))
+
+# Count words
+.PHONY : dats
+dats : isles.dat abyss.dat last.dat
+
+%.dat : books/%.txt $(COUNT_SRC)
+	$(COUNT_EXE) $&lt; $*.dat
+
+# Generate archive file
+analysis.tar.gz : *.dat $(COUNT_SRC)
+	tar -cvf $@ $^
+
+.PHONY : variables
+variables :
+	@echo TXT_FILES: $(TXT_FILES)
+	@echo DAT_FILES: $(DAT_FILES)
 
 .PHONY : clean
 clean :
