@@ -837,6 +837,15 @@ efile<span class="bold"><span class="f2">c<span class="bold"><span class="f4"> ~
 
 
 
+
+
+
+
+
+
+
+
+
 <span class="reverse">  GNU nano 2.0.6                           File: Makefile                                                              </span>
 
 
@@ -1111,6 +1120,15 @@ Traceback (most recent call last):
     counts.append((fields[0], int(fields[1]), float(fields[2])))
 ValueError: invalid literal for int() with base 10: 'PEOPLE'
 make: *** [abyss.jpg] Error 1
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Development/GitHub/Teaching/2015-11-16-manchester-codima/codima_lessons/make/runthrough/make-lesson $</span></span></span></span> make clean                                            
+rm -f  abyss.dat  isles.dat  last.dat  sierra.dat  abyss.jpg  isles.jpg  last.jpg  sierra.jpg
+rm -f analysis.tar.gz
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Development/GitHub/Teaching/2015-11-16-manchester-codima/codima_lessons/make/runthrough/make-lesson $</span></span></span></span> make analysis.tar.gz
+python wordcount.py books/abyss.txt abyss.dat
+python wordcount.py books/isles.txt isles.dat
+python wordcount.py books/last.txt last.dat
+python wordcount.py books/sierra.txt sierra.dat
+make: *** No rule to make target `abyss.jpg', needed by `analysis.tar.gz'.  Stop.
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Development/GitHub/Teaching/2015-11-16-manchester-codima/codima_lessons/make/runthrough/make-lesson $</span></span></span></span> 
 
 
