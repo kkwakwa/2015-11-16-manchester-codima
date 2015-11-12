@@ -118,7 +118,7 @@ Usage: make [options] [target] ...
 
 ```bash
 $ python wordcount.py books/isles.txt isles.dat
-$ $ head -5 isles.dat
+$ head -5 isles.dat
 the 3822 6.7371760973
 of 2460 4.33632998414
 and 1723 3.03719372466
@@ -344,7 +344,7 @@ clean :
 
 ### Dependency graph
 
-The dependency graph for our `Makefile` now looks like this:
+- The dependency graph for our `Makefile` now looks like this:
 
 ![Makefile dependency graph](img/02-makefile-challenge.png)
 
