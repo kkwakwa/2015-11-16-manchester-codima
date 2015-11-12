@@ -3659,6 +3659,42 @@ isles.dat : books/isles.txt
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="reverse">  GNU nano 2.0.6                                                        File: Makefile                                                                                                                      
 </span>
 isles.dat : books/isles.txt
@@ -4264,7 +4300,43 @@ variables :
 clean :
 	rm -f *.dat
 	rm -f analysis.tar.gz
-<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span>                                                                                                                                                             
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> cat Makefile                                                                                                                                                
+include config.mk
+
+PLOT_SRC=plotcount.py
+PLOT_EXE=python $(PLOT_SRC)
+
+TXT_FILES=$(wildcard books/*.txt)	
+DAT_FILES=$(patsubst books/%.txt, %.dat, $(TXT_FILES))
+JPG_FILES=$(patsubst books/%.txt, %.jpg, $(TXT_FILES))
+
+# Count words
+.PHONY : dats
+dats : $(DAT_FILES)
+
+%.dat : books/%.txt $(COUNT_SRC)
+	$(COUNT_EXE) $&lt; $*.dat
+
+%.jpg : $(DAT_FILES) $(PLOT_SRC)
+	$(PLOT_EXE) $&lt; $*.jpg
+
+# Generate archive file
+analysis.tar.gz : $(DAT_FILES) $(JPG_FILES) $(COUNT_SRC) $(PLOT_SRC)
+	tar -cvf $@ $^
+
+.PHONY : variables
+variables :
+	@echo TXT_FILES: $(TXT_FILES)
+	@echo DAT_FILES: $(DAT_FILES)
+
+.PHONY : clean
+clean :
+	rm -f *.dat *.jpg
+	rm -f analysis.tar.gz
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> make clean
+rm -f *.dat *.jpg
+rm -f analysis.tar.gz
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> make analysis.tar.gz
 
 
 <h2 id="end">end</h2></pre>
