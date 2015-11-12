@@ -3500,6 +3500,35 @@ isles.dat : books/isles.txt
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="reverse">  GNU nano 2.0.6                                                        File: Makefile                                                                                                                      
 </span>
 isles.dat : books/isles.txt
@@ -3946,6 +3975,35 @@ clean :
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> cat config.mk 
 COUNT_SRC=wordcount.py
 COUNT_EXE=python $(COUNT_SRC)
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> cat Makefile 
+include config.mk
+
+# Count words
+.PHONY : dats
+dats : isles.dat abyss.dat last.dat
+
+%.dat : books/%.txt $(COUNT_SRC)
+	$(COUNT_EXE) $&lt; $*.dat
+
+# Generate archive file
+analysis.tar.gz : *.dat $(COUNT_SRC)
+	tar -cvf $@ $^
+
+.PHONY : clean
+clean :
+	rm -f *.dat
+
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> touch books/*.txt                                                                                                                                           
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> make dats                                                                                                                                                   
+python wordcount.py books/isles.txt isles.dat
+python wordcount.py books/abyss.txt abyss.dat
+python wordcount.py books/last.txt last.dat
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> make analysis.tar.gz
+tar -cvf analysis.tar.gz abyss.dat isles.dat last.dat wordcount.py
+a abyss.dat
+a isles.dat
+a last.dat
+a wordcount.py
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> ~/Desktop/test_make_lesson/make-lesson $</span></span></span></span> 
 
 
