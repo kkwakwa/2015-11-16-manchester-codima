@@ -22,7 +22,7 @@
 
 ### `Make`
 
-- If the *target* is missing, the target is built
+- If a *target* is missing, that target is built
 
 ![Example dependencies](img/02-makefile_missing.png)
 
@@ -34,7 +34,7 @@
 
 ![Example dependencies](img/02-makefile_change.png)
 
-(is *dependency* newer?)
+(is a *dependency* newer than its target?)
 
 ----
 
@@ -53,7 +53,7 @@
 
 ----
 
-### Why use build tools?
+### When are build tools used?
 
 * compilation of source code
 * run analyses on raw data (*e.g. bioinformatics pipelines*)
@@ -200,6 +200,7 @@ $ python plotcount.py isles.dat isles.jpg
 * `Make`
   * only rebuilds if a *dependency* changes
   * only rebuilds *targets* that are missing or affected by changes
+  * self-documenting
   
 
 ---
@@ -283,6 +284,48 @@ isles.dat : books/isles.txt
 ### Elements of a `Makefile` rule
 
 ![The parts of a Makefile rule](img/rule_elements.png)
+
+----
+
+### Live coding exercises
+
+Follow at [http://kkwakwa.github.io/2015-11-16-manchester-codima/2015-11-16-make-lesson](http://kkwakwa.github.io/2015-11-16-manchester-codima/2015-11-16-make-lesson)
+
+(see [course EtherPad](http://pad.software-carpentry.org/2015-11-16-manchester-codima) for the link)
+
+![Red/green sticky](img/red_green_sticky.png)
+
+----
+
+### Question: Why do dependencies change?
+
+How does `Make` know that a dependency has changed?
+
+1. It keeps a copy of the original data and compares it to what's on disk
+2. It checks whether the dependency is newer than the target
+3. You need to tell `Make` what has updated when you run it
+4. The operating system keeps a list of what you've done, and `Make` looks at this
+
+----
+
+### Live coding exercises
+
+Follow at [http://kkwakwa.github.io/2015-11-16-manchester-codima/2015-11-16-make-lesson](http://kkwakwa.github.io/2015-11-16-manchester-codima/2015-11-16-make-lesson)
+
+(see [course EtherPad](http://pad.software-carpentry.org/2015-11-16-manchester-codima) for the link)
+
+![Red/green sticky](img/red_green_sticky.png)
+
+----
+
+### Question: Target is not a file
+
+We don't make a `clean` file. What happens if a file called `clean` exists?
+
+1. `Make` ignores it and runs the rule
+2. `Make` deletes the file
+3. `Make` assumes that target was built already and stops
+4. `Make` gives an error
 
 ----
 
@@ -429,6 +472,63 @@ Follow at [http://kkwakwa.github.io/2015-11-16-manchester-codima/2015-11-16-make
 
 ----
 
+### Question: Using bash `*` wildcard
+
+What happens if we specify dependencies:
+
+```
+analysis.tar.gz : *.dat
+         tar -czf $@ $^
+```
+
+and issue:
+
+```
+make analysis.tar.gz
+```
+
+1. `Make` builds the archive
+2. `Make` doesn't understand `*.dat`
+3. `Make` can't find the file(s) `*.dat`
+4. `Make` builds the `*.dat` files and the archive
+
+----
+
+### Live coding exercises
+
+Follow at [http://kkwakwa.github.io/2015-11-16-manchester-codima/2015-11-16-make-lesson](http://kkwakwa.github.io/2015-11-16-manchester-codima/2015-11-16-make-lesson)
+
+(see [course EtherPad](http://pad.software-carpentry.org/2015-11-16-manchester-codima) for the link)
+
+![Red/green sticky](img/red_green_sticky.png)
+
+----
+
+### Question: Using bash `*` wildcard
+
+- What happens if we delete the `*.dat` files and issue
+
+```
+make analysis.tar.gz
+```
+
+1. `Make` builds the archive only
+2. `Make` builds the `*.dat` files only
+3. `Make` can't find the file(s) `*.dat`
+4. `Make` builds the `*.dat` files and the archive
+
+----
+
+### Live coding exercises
+
+Follow at [http://kkwakwa.github.io/2015-11-16-manchester-codima/2015-11-16-make-lesson](http://kkwakwa.github.io/2015-11-16-manchester-codima/2015-11-16-make-lesson)
+
+(see [course EtherPad](http://pad.software-carpentry.org/2015-11-16-manchester-codima) for the link)
+
+![Red/green sticky](img/red_green_sticky.png)
+
+----
+
 ### Question: Updating dependencies
 
 What will happen if you now execute:
@@ -499,7 +599,8 @@ clean :
         rm -f analysis.tar.gz
 ```
 
-In our `Makefile`, the output is a product of the input data files, *but also of the code*: if `wordcount.py` changes, the output may also change. 
+- In our `Makefile`, the output is a product of the input data files, *but also of the code*
+- If `wordcount.py` changes, the output may also change. 
 
 ----
 
@@ -627,7 +728,7 @@ clean :
 
 ### Variable assignment
 
-- `Make` [variables](http://swcarpentry.github.io/make-novice/reference.html#variable) (sometimes called '[macros](http://swcarpentry.github.io/make-novice/reference.html#macro)') can be defined by [*assignment*](http://swcarpentry.github.io/make-novice/reference.html#assignment).
+- `Make` [variables](http://swcarpentry.github.io/make-novice/reference.html#variable) (sometimes called '[macros](http://swcarpentry.github.io/make-novice/reference.html#macro)') are defined by [*assignment*](http://swcarpentry.github.io/make-novice/reference.html#assignment).
 
 ```bash
 VAR=value
@@ -766,7 +867,7 @@ TXT_FILES=$(wildcard books/*.txt)
 
 ```bash
 .PHONY : variables
-variables:
+variables :
     @echo TXT_FILES: $(TXT_FILES)
 ```
 
@@ -778,7 +879,7 @@ variables:
 
 ```bash
 .PHONY : variables
-variables:
+variables :
     @echo TXT_FILES: $(TXT_FILES)
 ```
 
@@ -877,8 +978,11 @@ clean :
 ### How does `Make` help?
 
 * automates repetitive commands, reducing risk of error
-* outputs are only created when inputs/dependencies have changed, saving time
+* outputs are only created when inputs/dependencies have changed
+  * synchronising data/inputs with outputs
+  * saving time
 * code acts as documentation, recording dependencies between code, data, and outputs
+* parallelisation (`make -j 4 analysis.tar.gz`)
 
 ----
 

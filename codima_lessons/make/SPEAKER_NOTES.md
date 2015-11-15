@@ -31,7 +31,7 @@ $ wget http://swcarpentry.github.io/make-novice/make-lesson.tar.gz
   * data analysis outputs
   * visualisations of data
   * documents/presentations
-* The *targets* may depend on input or intermediate files
+* The *targets* may depend on input or intermediate files (which may also be targets)
   * data files
   * analysis files
 * **`Make` organises the construction of output `targets` from their inputs**
