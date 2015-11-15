@@ -15,10 +15,4 @@
 $ reveal-md slides.md --theme=white
 ```
 
-or
-
-```
-$ reveal-md https://raw.githubusercontent.com/kkwakwa/2015-11-16-manchester-codima/gh-pages/codima_lessons/make/slides.md --theme=white
-```
-
 * The `reveal.js` themes with white backgrounds work best, as the included `.png`s currently have white backgrounds. These could conceivably be redone with transparent backgrounds.
