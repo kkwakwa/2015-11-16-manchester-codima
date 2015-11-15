@@ -297,7 +297,7 @@ Follow at [http://kkwakwa.github.io/2015-11-16-manchester-codima/2015-11-16-make
 
 ----
 
-### Question: Why do dependencies change?
+### Question: Why are targets rebuilt?
 
 How does `Make` know that a dependency has changed?
 
