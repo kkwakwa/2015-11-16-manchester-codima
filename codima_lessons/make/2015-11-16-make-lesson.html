@@ -1079,6 +1079,12 @@ tar -czf analysis.tar.gz isles.dat abyss.dat last.dat
 
 
 
+
+
+
+
+
+
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make analysis.tar.gz
 make: `analysis.tar.gz' is up to date.
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make clean                                                     
@@ -1096,13 +1102,13 @@ rm -f *.dat
 rm -f analysis.tar.gz
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make analysis.tar.gz                                           
 make: *** No rule to make target `*.dat', needed by `analysis.tar.gz'.  Stop.
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make dats
+python wordcount.py books/isles.txt isles.dat
+python wordcount.py books/abyss.txt abyss.dat
+python wordcount.py books/last.txt last.dat
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make analysis.tar.gz                                           
+tar -czf analysis.tar.gz abyss.dat isles.dat last.dat
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> 
-
-
-
-
-
-
 
 
 
