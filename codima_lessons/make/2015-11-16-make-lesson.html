@@ -437,20 +437,31 @@ Report bugs to &lt;bug-make@gnu.org&gt;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make
 make: *** No targets specified and no makefile found.  Stop.
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make -h | head
+Usage: make [options] [target] ...
+Options:
+  -b, -m                      Ignored for compatibility.
+  -B, --always-make           Unconditionally make all targets.
+  -C DIRECTORY, --directory=DIRECTORY
+                              Change to DIRECTORY before doing anything.
+  -d                          Print lots of debugging information.
+  --debug[=FLAGS]             Print various types of debugging information.
+  -e, --environment-overrides
+                              Environment variables override makefiles.
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> 
-
-
-
-
-
-
-
-
-
-
-
 
 
 
