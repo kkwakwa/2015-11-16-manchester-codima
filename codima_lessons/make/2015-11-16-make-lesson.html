@@ -1446,19 +1446,25 @@ tar -czf analysis.tar.gz abyss.dat isles.dat last.dat wordcount.py
 
 
 
+
+
+
+
+
+
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make variables
 TXT_FILES: books/abyss.txt books/isles.txt books/last.txt books/sierra.txt
 DAT_FILES: abyss.dat isles.dat last.dat sierra.dat
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make clean                                                     
 rm -f  abyss.dat  isles.dat  last.dat  sierra.dat
 rm -f analysis.tar.gz
-<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make analysis.
-
-
-
-
-
-
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make analysis.tar.gz
+python wordcount.py books/abyss.txt abyss.dat
+python wordcount.py books/isles.txt isles.dat
+python wordcount.py books/last.txt last.dat
+python wordcount.py books/sierra.txt sierra.dat
+tar -czf analysis.tar.gz abyss.dat isles.dat last.dat sierra.dat wordcount.py
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> 
 
 
 
