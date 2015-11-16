@@ -1228,6 +1228,12 @@ python wordcount.py books/last.txt last.dat
 
 
 
+
+
+
+
+
+
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> touch wordcount.py
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make dats
 python wordcount.py books/isles.txt isles.dat
@@ -1252,13 +1258,13 @@ tar -czf analysis.tar.gz abyss.dat isles.dat last.dat
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make analysis.tar.gz
 python wordcount.py books/abyss.txt *.dat
 tar -czf analysis.tar.gz *.dat
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> ls -l analysis.tar.gz 
+-rw-r--r--  1 lpritc  staff  39463 16 Nov 16:14 analysis.tar.gz
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> ls
+*.dat           analysis.tar.gz plotcount.py
+Makefile        <span class="bold"><span class="f4">books</span></span>           wordcount.py
+abyss.txt       <span class="bold"><span class="f4">clean</span></span>           wordcount.pyc
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> 
-
-
-
-
-
-
 
 
 
