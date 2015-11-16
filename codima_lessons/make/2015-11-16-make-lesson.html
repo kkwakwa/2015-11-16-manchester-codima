@@ -859,6 +859,11 @@ abyss.dat     isles.dat     wordcount.py
 
 
 
+
+
+
+
+
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> mkdir clean
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> ls
 Makefile      <span class="bold"><span class="f4">books</span></span>         isles.dat     wordcount.py
@@ -880,12 +885,12 @@ rm -f *.dat
 make: Circular isles.dat &lt;- dats dependency dropped.
 python wordcount.py books/isles.txt isles.dat
 python wordcount.py books/abyss.txt abyss.dat
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> touch abyss.txt
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> ls -l books/abyss.txt 
+-rw-r--r--  1 lpritc  staff  348929 14 Nov 23:04 books/abyss.txt
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> ls -l abyss.dat
+-rw-r--r--  1 lpritc  staff  211402 16 Nov 15:06 abyss.dat
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> 
-
-
-
-
-
 
 
 
