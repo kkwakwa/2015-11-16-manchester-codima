@@ -1561,6 +1561,17 @@ tar -czf analysis.tar.gz abyss.dat isles.dat last.dat sierra.dat wordcount.py
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make clean
 rm -f  abyss.dat  isles.dat  last.dat  sierra.dat
 rm -f analysis.tar.gz
@@ -1570,21 +1581,120 @@ python wordcount.py books/isles.txt isles.dat
 python wordcount.py books/last.txt last.dat
 python wordcount.py books/sierra.txt sierra.dat
 tar -czf analysis.tar.gz abyss.dat isles.dat last.dat sierra.dat wordcount.py
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make clean                                                     
+rm -f  abyss.dat  isles.dat  last.dat  sierra.dat
+rm -f analysis.tar.gz
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make analysis.tar.gz                                           
+python wordcount.py books/abyss.txt abyss.dat
+python wordcount.py books/isles.txt isles.dat
+python wordcount.py books/last.txt last.dat
+python wordcount.py books/sierra.txt sierra.dat
+tar -czf analysis.tar.gz abyss.dat isles.dat last.dat sierra.dat wordcount.py
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make clean
+rm -f  abyss.dat  isles.dat  last.dat  sierra.dat
+rm -f analysis.tar.gz
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make -j 4 analysis.tar.gz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> tike -j 4 analysis.tar.gz
+python wordcount.py books/abyss.txt abyss.dat
+python wordcount.py books/isles.txt isles.dat
+python wordcount.py books/last.txt last.dat
+python wordcount.py books/sierra.txt sierra.dat
+tar -czf analysis.tar.gz abyss.dat isles.dat last.dat sierra.dat wordcount.py
+
+real	0m0.449s
+user	0m0.901s
+sys	0m0.059s
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make clean
+rm -f  abyss.dat  isles.dat  last.dat  sierra.dat
+rm -f analysis.tar.gz
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> time make analysis.tar.gz
+python wordcount.py books/abyss.txt abyss.dat
+python wordcount.py books/isles.txt isles.dat
+python wordcount.py books/last.txt last.dat
+python wordcount.py books/sierra.txt sierra.dat
+tar -czf analysis.tar.gz abyss.dat isles.dat last.dat sierra.dat wordcount.py
+
+real	0m0.906s
+user	0m0.736s
+sys	0m0.052s
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
