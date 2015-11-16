@@ -929,6 +929,14 @@ make: Nothing to be done for `dats'.
 
 
 
+
+
+
+
+
+
+
+
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> ls -l books/abyss.txt 
 -rw-r--r--  1 lpritc  staff  348929 16 Nov 15:07 books/abyss.txt
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> ls -l abyss.dat                                                
@@ -938,15 +946,15 @@ make: Nothing to be done for `dats'.
 -rw-r--r--  1 lpritc  staff  348929 16 Nov 15:08 books/abyss.txt
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make dats
 python wordcount.py books/abyss.txt abyss.dat
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> touch .PHONY
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make dats
+make: Nothing to be done for `dats'.
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make clean
+rm -f *.dat
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make dats
+python wordcount.py books/isles.txt isles.dat
+python wordcount.py books/abyss.txt abyss.dat
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> 
-
-
-
-
-
-
-
-
 
 
 
