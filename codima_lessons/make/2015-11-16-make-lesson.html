@@ -1360,6 +1360,11 @@ tar -czf analysis.tar.gz abyss.dat isles.dat last.dat wordcount.py
 
 
 
+
+
+
+
+
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make variables                                                 
 TXT_FILES: books/abyss.txt books/isles.txt books/last.txt books/sierra.txt
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make variables
@@ -1367,12 +1372,12 @@ echo TXT_FILES: books/abyss.txt books/isles.txt books/last.txt books/sierra.txt
 TXT_FILES: books/abyss.txt books/isles.txt books/last.txt books/sierra.txt
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make variables
 TXT_FILES: books/abyss.txt books/isles.txt books/last.txt books/sierra.txt
+<span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> make analysis.tar.gz 
+python wordcount.py books/abyss.txt abyss.dat
+python wordcount.py books/isles.txt isles.dat
+python wordcount.py books/last.txt last.dat
+tar -czf analysis.tar.gz abyss.dat isles.dat last.dat wordcount.py
 <span class="bold"><span class="f2">lpritc<span class="bold"><span class="f4"> make-lesson $</span></span></span></span> 
-
-
-
-
-
 
 
 
