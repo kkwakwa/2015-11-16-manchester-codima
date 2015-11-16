@@ -1,5 +1,10 @@
 # 2015-11-16 CoDiMa workshop: `Make`
 
+----
+
+Please use the EtherPad to take communal notes:
+
+[http://pad.software-carpentry.org/2015-11-16-manchester-codima](http://pad.software-carpentry.org/2015-11-16-manchester-codima)
 
 ---
 
